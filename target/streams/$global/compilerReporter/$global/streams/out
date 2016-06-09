@@ -1,0 +1,4 @@
+[error] C:\Users\OL4ik\Desktop\project2\app\views\index.scala.html:56: object controllers.routes is not a value
+[error]         <td><a href="@routes.Application.index()">@routes</a></td>
+[error]                                                    ^
+[error] one error found

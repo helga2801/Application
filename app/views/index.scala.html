@@ -1,0 +1,47 @@
+@import java.util
+@(fruits: util.List[Fruit])
+
+@main("Application") {
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href=" ">Application</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h2>Information</h2>
+           <p>This chapter has been dense, and we saw a lot. We learned how to handle user input—
+               from a simple form submission to a more complex file submission. We also learned
+               how all this was possible through the use of body parsers. We saw in detail how the
+               Play binding process transforms user-submitted data into data that our application
+               can understand.</p>
+        </div>
+    </div>
+    <div class="container">
+              <h2>StorehouseFruits</h2>
+               <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>sum</th>
+                    <th></th>
+                </tr>
+            </thead>
+<tbody>
+@for(fruit <- fruits) {
+    <tr>
+        <td><a href="@routes.Application.index()">@fruit.id</a></td>
+        <td><a href="@routes.Application.index()">@fruit.name</a></td>
+        <td><a href="@routes.Application.index()">@fruit.sum</a></td>
+    </tr>
+}
+            </tbody>
+        </table>
+    </div>
+}
+

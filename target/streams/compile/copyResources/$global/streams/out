@@ -1,0 +1,6 @@
+[debug] Copy resource mappings: 
+[debug] 	(C:\Users\OL4ik\Desktop\project2\conf\application.conf,C:\Users\OL4ik\Desktop\project2\target\scala-2.11\classes\application.conf)
+[debug] 	(C:\Users\OL4ik\Desktop\project2\conf\logback.xml,C:\Users\OL4ik\Desktop\project2\target\scala-2.11\classes\logback.xml)
+[debug] 	(C:\Users\OL4ik\Desktop\project2\conf\META-INF,C:\Users\OL4ik\Desktop\project2\target\scala-2.11\classes\META-INF)
+[debug] 	(C:\Users\OL4ik\Desktop\project2\conf\routes,C:\Users\OL4ik\Desktop\project2\target\scala-2.11\classes\routes)
+[debug] 	(C:\Users\OL4ik\Desktop\project2\conf\META-INF\persistence.xml,C:\Users\OL4ik\Desktop\project2\target\scala-2.11\classes\META-INF\persistence.xml)

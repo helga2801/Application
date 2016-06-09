@@ -1,0 +1,288 @@
+// @SOURCE:C:/Users/OL4ik/Desktop/ch03-master/ch03-master/conf/routes
+// @HASH:b30257fa6c760c63d5a321918edb265ad2eee6f0
+// @DATE:Wed Jun 08 18:50:33 EEST 2016
+
+import play.core.{Router, _}
+import play.core.Router._
+import play.core.j._
+import play.api.mvc._
+import play.libs.F
+
+
+// @LINE:15
+// @LINE:12
+// @LINE:11
+// @LINE:10
+// @LINE:9
+// @LINE:8
+// @LINE:6
+package controllers {
+
+  import play.core.Router._
+
+  // @LINE:15
+  class ReverseFruits {
+
+
+    // @LINE:15
+    def at(file:String): Call = {
+      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
+    }
+
+
+  }
+
+
+  // @LINE:12
+  // @LINE:11
+  // @LINE:10
+  // @LINE:9
+  // @LINE:8
+  class ReverseFruits {
+
+
+    // @LINE:8
+    def list(): Call = {
+      Call("GET", _prefix + { _defaultPrefix } + "fruits/")
+    }
+
+
+    // @LINE:12
+    def delete(id:String): Call = {
+      Call("DELETE", _prefix + { _defaultPrefix } + "fruits/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)))
+    }
+
+
+    // @LINE:11
+    def save(): Call = {
+      Call("POST", _prefix + { _defaultPrefix } + "fruits/")
+    }
+
+
+    // @LINE:10
+    def form(id:String): Call = {
+      Call("GET", _prefix + { _defaultPrefix } + "fruits/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)))
+    }
+
+
+    // @LINE:9
+    def newFruit(): Call = {
+      Call("GET", _prefix + { _defaultPrefix } + "fruits/new")
+    }
+
+
+  }
+
+
+  // @LINE:6
+  class ReverseApplication {
+
+
+    // @LINE:6
+    def index(): Call = {
+      Call("GET", _prefix)
+    }
+
+
+  }
+
+}
+
+
+
+// @LINE:15
+// @LINE:12
+// @LINE:11
+// @LINE:10
+// @LINE:9
+// @LINE:8
+// @LINE:6
+package controllers.javascript {
+
+  import play.core.Router.JavascriptReverseRoute
+
+  // @LINE:15
+  class ReverseAssets {
+
+
+    // @LINE:15
+    def at : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Assets.at",
+      """
+      function(file) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
+                                                                                                                                                        """
+    )
+
+
+  }
+
+
+  // @LINE:12
+  // @LINE:11
+  // @LINE:10
+  // @LINE:9
+  // @LINE:8
+  class ReverseFruits {
+
+
+    // @LINE:8
+    def list : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Fruits.list",
+      """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "fruits/"})
+      }
+                                                                          """
+    )
+
+
+    // @LINE:12
+    def delete : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Fruits.delete",
+      """
+      function(id) {
+      return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "fruits/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id))})
+      }
+                                                                                                                                                             """
+    )
+
+
+    // @LINE:11
+    def save : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Fruits.save",
+      """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "fruits/"})
+      }
+                                                                           """
+    )
+
+
+    // @LINE:10
+    def form : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Fruits.form",
+      """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "fruits/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id))})
+      }
+                                                                                                                                                          """
+    )
+
+
+    // @LINE:9
+    def newFruit : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Fruits.newProduct",
+      """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "fruits/new"})
+      }
+                                                                          """
+    )
+
+
+  }
+
+
+  // @LINE:6
+  class ReverseApplication {
+
+
+    // @LINE:6
+    def index : JavascriptReverseRoute = JavascriptReverseRoute(
+      "controllers.Application.index",
+      """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + """"})
+      }
+                                                     """
+    )
+
+
+  }
+
+}
+
+
+
+// @LINE:15
+// @LINE:12
+// @LINE:11
+// @LINE:10
+// @LINE:9
+// @LINE:8
+// @LINE:6
+package controllers.ref {
+
+  import play.core.Router.HandlerDef
+
+
+  // @LINE:15
+  class ReverseAssets {
+
+
+    // @LINE:15
+    def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
+    )
+
+
+  }
+
+
+  // @LINE:12
+  // @LINE:11
+  // @LINE:10
+  // @LINE:9
+  // @LINE:8
+  class ReverseFruits {
+
+
+    // @LINE:8
+    def list(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Fruits.list(), HandlerDef(this, "controllers.Fruits", "list", Seq(), "GET", """""", _prefix + """fruits/""")
+    )
+
+
+    // @LINE:12
+    def delete(id:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Fruits.delete(id), HandlerDef(this, "controllers.Fruits", "delete", Seq(classOf[String]), "DELETE", """""", _prefix + """fruits/$id<[^/]+>""")
+    )
+
+
+    // @LINE:11
+    def save(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Fruits.save(), HandlerDef(this, "controllers.Fruits", "save", Seq(), "POST", """""", _prefix + """fruits/""")
+    )
+
+
+    // @LINE:10
+    def form(id:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Fruits.form(id), HandlerDef(this, "controllers.Fruits", "form", Seq(classOf[String]), "GET", """""", _prefix + """fruits/$id<[^/]+>""")
+    )
+
+
+    // @LINE:9
+    def newProduct(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Fruits.newFruit(), HandlerDef(this, "controllers.Fruits", "newFruit", Seq(), "GET", """""", _prefix + """fruits/new""")
+    )
+
+
+  }
+
+
+  // @LINE:6
+  class ReverseApplication {
+
+
+    // @LINE:6
+    def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+      controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
+    )
+
+
+  }
+
+}
+
